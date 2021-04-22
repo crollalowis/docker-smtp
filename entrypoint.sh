@@ -79,6 +79,9 @@ if [ -f /etc/exim4/_docker_additional_macros ]; then
 	cat /etc/exim4/_docker_additional_macros >> /etc/exim4/exim4.conf.localmacros
 fi
 
+# custom config
+echo 'helo_allow_chars="_"' >> /etc/exim4/exim4.conf.localmacros
+
 /bin/set-exim4-update-conf "${opts[@]}"
 
 exec "$@"
